@@ -16,7 +16,7 @@ public class App {
 
         String choice = scan.nextLine();
 
-        if (choice.equals("s")) {
+        if (choice.equals("s") || choice.equals("S")) {
 
             System.out.println(" Inserisci ka marca del prodotto");
             String productBrand = scan.nextLine();
@@ -42,7 +42,7 @@ public class App {
 
             myPhone.print();
 
-        } else if (choice.equals("t")) {
+        } else if (choice.equals("t") || choice.equals("T")) {
 
             System.out.println(" Inserisci ka marca del prodotto");
             String productBrand = scan.nextLine();
@@ -54,10 +54,17 @@ public class App {
 
             System.out.println(" Inserisci la dimensione in pollici del prodotto");
             int inch = scan.nextInt();
+            String vuoto = scan.nextLine();
             System.out.println("");
 
             System.out.println(" Ha funzionalità smart ? ");
-            boolean smart = scan.nextBoolean();
+            String smartTv = scan.nextLine();
+
+            boolean smart = false;
+
+            if (smartTv.equals("si") || smartTv.equals("SI")) {
+                smart = true;
+            }
             System.out.println("");
 
             System.out.println(" Inserisci il prezzo del prodotto (EUR)");
@@ -68,7 +75,7 @@ public class App {
 
             myTv.print();
 
-        } else if (choice.equals("h")) {
+        } else if (choice.equals("c") || choice.equals("C")) {
 
             System.out.println(" Inserisci ka marca del prodotto");
             String productBrand = scan.nextLine();

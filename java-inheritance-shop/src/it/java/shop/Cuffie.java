@@ -37,10 +37,10 @@ public class Cuffie extends Prodotto {
 
         super.print();
 
-        System.out.println(" Codice IMEI : " + this.headphoneColor);
+        System.out.println(" Colore  : " + this.headphoneColor);
         System.out.println("");
 
-        System.out.println(" Dimensione memoria : " + this.headphoneType);
+        System.out.println(" Tipo : " + this.headphoneType);
         System.out.println("");
 
     }

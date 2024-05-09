@@ -35,10 +35,10 @@ public class Televisori extends Prodotto {
 
         super.print();
 
-        System.out.println(" Codice IMEI : " + this.tvSize);
+        System.out.println(" Dimensione : : " + this.tvSize + "''");
         System.out.println("");
 
-        System.out.println(" Dimensione memoria : " + this.smartTv);
+        System.out.println(" Snart TV ? : " + this.smartTv);
         System.out.println("");
 
     }
