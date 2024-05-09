@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Prodotto {
 
-    private int productCode;
-    private String productName;
-    private String productDescription;
-    private double productPrice;
-    private static final double IVA = 0.22;
+    protected int productCode;
+    protected String productName;
+    protected String productBrand;
+    protected double productPrice;
+    protected static final double IVA = 0.22;
 
-    public int getProductCode() {
+    protected int getProductCode() {
         return productCode;
     }
 
@@ -18,8 +18,8 @@ public class Prodotto {
         this.productName = productBame;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setProductDescription(String productBrand) {
+        this.productBrand = productBrand;
     }
 
     public void setProductPrice(double productPrice) {
@@ -31,7 +31,7 @@ public class Prodotto {
     }
 
     public String getProductDescription() {
-        return productDescription;
+        return productBrand;
     }
 
     public double getProductPrice() {
@@ -45,13 +45,12 @@ public class Prodotto {
     // CONSTRUCTORS
 
     public Prodotto() {
-
     }
 
-    public Prodotto(String productName, String productDescription, Double productPrice) {
+    public Prodotto(String productName, String productBrand, Double productPrice) {
 
         this.productName = productName;
-        this.productDescription = productDescription;
+        this.productBrand = productBrand;
         this.productPrice = productPrice;
 
         Random code = new Random();
@@ -77,7 +76,7 @@ public class Prodotto {
         return exetendedCode;
     }
 
-    public void pricePrint() {
+    public void print() {
 
         System.out.println(" Prodotto inserito :");
         System.out.println("");
@@ -92,6 +91,10 @@ public class Prodotto {
 
         System.out.println("");
         System.out.println("");
+    }
+
+    public String toString() {
+        return productCode + extendedName();
     }
 
 }

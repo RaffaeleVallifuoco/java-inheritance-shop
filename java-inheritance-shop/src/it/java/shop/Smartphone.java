@@ -1,15 +1,17 @@
 package it.java.shop;
 
+import java.util.Random;
+
 public class Smartphone extends Prodotto {
 
     private String imeiCode;
-    private int romSize;
+    private long romSize;
 
     public String getImeiCode() {
         return imeiCode;
     }
 
-    public int getRomSize() {
+    public long getRomSize() {
         return romSize;
     }
 
@@ -17,13 +19,30 @@ public class Smartphone extends Prodotto {
         this.imeiCode = imeiCode;
     }
 
-    public void setRomSize(int romSize) {
+    public void setRomSize(long romSize) {
         this.romSize = romSize;
     }
 
     // CONSTRUCTORS
 
-    public Smartphone() {
+    public Smartphone(String productName, String productBrand, double productPrice, String imei, long rom) {
+
+        super(productName, productBrand, productPrice);
+        this.productCode = super.productCode;
+        this.imeiCode = imei;
+        this.romSize = rom;
+
+    }
+
+    public void print() {
+
+        super.print();
+
+        System.out.println(" Codice IMEI : " + this.imeiCode);
+        System.out.println("");
+
+        System.out.println(" Dimensione memoria : " + this.romSize);
+        System.out.println("");
 
     }
 
