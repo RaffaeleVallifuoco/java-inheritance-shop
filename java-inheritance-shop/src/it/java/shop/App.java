@@ -42,26 +42,61 @@ public class App {
 
             myPhone.print();
 
+        } else if (choice.equals("t")) {
+
+            System.out.println(" Inserisci ka marca del prodotto");
+            String productBrand = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" Inserisci il nome del prodotto");
+            String productName = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" Inserisci la dimensione in pollici del prodotto");
+            int inch = scan.nextInt();
+            System.out.println("");
+
+            System.out.println(" Ha funzionalità smart ? ");
+            boolean smart = scan.nextBoolean();
+            System.out.println("");
+
+            System.out.println(" Inserisci il prezzo del prodotto (EUR)");
+            double productprice = scan.nextDouble();
+            System.out.println("");
+
+            Televisori myTv = new Televisori(productName, productBrand, productprice, inch, smart);
+
+            myTv.print();
+
+        } else if (choice.equals("h")) {
+
+            System.out.println(" Inserisci ka marca del prodotto");
+            String productBrand = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" Inserisci il nome del prodotto");
+            String productName = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" Inserisci il colore del prodotto ");
+            String color = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" La cuffia è cablata o buetooth ? ");
+            String type = scan.nextLine();
+            System.out.println("");
+
+            System.out.println(" Inserisci il prezzo del prodotto (EUR)");
+            double productprice = scan.nextDouble();
+            System.out.println("");
+
+            Cuffie myHeadphone = new Cuffie(productName, productBrand, productprice, color, type);
+
+            myHeadphone.print();
+
         }
 
-        // System.out.println(" Inserisci il nome del prodotto");
-        // String productName = scan.nextLine();
-        // System.out.println("");
-
-        // System.out.println(" Inserisci ka descrizione del prodotto");
-        // String productDescription = scan.nextLine();
-        // System.out.println("");
-
-        // System.out.println(" Inserisci il prezzo del prodotto (EUR)");
-        // double productprice = scan.nextDouble();
-        // System.out.println("");
-
         scan.close();
-
-        // Smartphone smart = new Smartphone();
-        // smart.getProductCode ();
-
-        // System.out.println(product.toString());
 
     }
 

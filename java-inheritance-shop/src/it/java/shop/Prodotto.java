@@ -83,7 +83,7 @@ public class Prodotto {
 
         System.out.println(" Prezzo discount ; " + this.getProductPrice() + " €");
 
-        System.out.println(" Nome e identificativo prodotto : " + this.extendedName());
+        System.out.println(" Modello e identificativo prodotto : " + this.extendedName());
 
         System.out.println(" Prezzo ivato : " + this.ivaPrice() + " €");
 

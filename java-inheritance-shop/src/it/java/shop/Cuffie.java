@@ -23,7 +23,25 @@ public class Cuffie extends Prodotto {
 
     // CONSTRUCTORS
 
-    public Cuffie() {
+    public Cuffie(String productName, String productBrand, double productPrice, String headphoneColor,
+            String headphoneType) {
+
+        super(productName, productBrand, productPrice);
+        this.productCode = super.productCode;
+        this.headphoneColor = headphoneColor;
+        this.headphoneType = headphoneType;
+
+    }
+
+    public void print() {
+
+        super.print();
+
+        System.out.println(" Codice IMEI : " + this.headphoneColor);
+        System.out.println("");
+
+        System.out.println(" Dimensione memoria : " + this.headphoneType);
+        System.out.println("");
 
     }
 

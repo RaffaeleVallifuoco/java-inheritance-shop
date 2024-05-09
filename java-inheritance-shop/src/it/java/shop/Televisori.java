@@ -23,7 +23,23 @@ public class Televisori extends Prodotto {
 
     // CONSTRUCTORS
 
-    public Televisori() {
+    public Televisori(String productName, String productBrand, double productPrice, int tvSize, boolean smartTv) {
+
+        super(productName, productBrand, productPrice);
+        this.tvSize = tvSize;
+        this.smartTv = smartTv;
+
+    }
+
+    public void print() {
+
+        super.print();
+
+        System.out.println(" Codice IMEI : " + this.tvSize);
+        System.out.println("");
+
+        System.out.println(" Dimensione memoria : " + this.smartTv);
+        System.out.println("");
 
     }
 
