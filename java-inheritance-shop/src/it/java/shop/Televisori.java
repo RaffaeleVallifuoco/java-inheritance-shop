@@ -31,6 +31,8 @@ public class Televisori extends Prodotto {
 
     }
 
+    @Override
+
     public void print() {
 
         super.print();

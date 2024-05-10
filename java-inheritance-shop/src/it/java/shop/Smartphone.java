@@ -34,6 +34,8 @@ public class Smartphone extends Prodotto {
 
     }
 
+    @Override
+
     public void print() {
 
         super.print();

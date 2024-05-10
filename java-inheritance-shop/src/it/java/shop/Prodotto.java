@@ -81,11 +81,20 @@ public class Prodotto {
         System.out.println(" Prodotto inserito :");
         System.out.println("");
 
-        System.out.println(" Prezzo discount ; " + this.getProductPrice() + " €");
+        System.out.println(" Marca : " + this.productBrand);
+        System.out.println("");
 
-        System.out.println(" Modello e identificativo prodotto : " + this.extendedName());
+        System.out.println(" Modello : " + this.productName);
+        System.out.println("");
+
+        System.out.println(" Prezzo discount ; " + this.getProductPrice() + " €");
+        System.out.println("");
 
         System.out.println(" Prezzo ivato : " + this.ivaPrice() + " €");
+        System.out.println("");
+
+        System.out.println(" Modello e identificativo prodotto : " + this.extendedName());
+        System.out.println("");
 
         System.out.println(" EAN code : " + Prodotto.extendedCode(this.getProductCode()));
 
