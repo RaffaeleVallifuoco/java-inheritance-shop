@@ -42,10 +42,17 @@ public class App {
         double productPrice;
         boolean validImput = false;
 
+        // Reapeat cycle until product is correctly initialized;
+
         do {
             System.out.println("Inserisci il prezzo del prodotto (EUR)");
+
+            // sure that price imput is a correct number
+
             try {
                 productPrice = scan.nextDouble();
+                scan.nextLine();
+
                 validImput = true;
 
                 // choice switch (creating specific product istance by choice)
@@ -74,7 +81,7 @@ public class App {
 
                         System.out.println(" Inserisci la dimensione in pollici del prodotto");
                         int inch = scan.nextInt();
-                        String vuoto = scan.nextLine();
+                        scan.nextLine();
                         System.out.println("");
 
                         System.out.println(" Ha funzionalità smart ? ");
@@ -87,13 +94,10 @@ public class App {
                         }
                         System.out.println("");
 
-                        System.out.println(" Inserisci il prezzo del prodotto (EUR)");
-                        System.out.println("");
-
                         newProduct = new Televisori(productName, productBrand, productPrice, inch, smart);
                         break;
 
-                    // HEDPHONE
+                    // HEADPHONE
 
                     case "c":
 
@@ -117,7 +121,7 @@ public class App {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Per favore, inserisci un numero valido ! ");
-                scan.nextLine(); // Pulisci il buffer dell'input
+                scan.nextLine();
             }
         } while (!validImput);
 
