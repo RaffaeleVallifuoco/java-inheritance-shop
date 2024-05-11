@@ -1,3 +1,6 @@
+
+//  app.java IS THE NEW carrello.java
+
 package it.java.shop;
 
 import java.util.Scanner;

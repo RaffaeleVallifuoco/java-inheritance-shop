@@ -1,7 +1,5 @@
 package it.java.shop;
 
-import java.util.Random;
-
 public class Smartphone extends Prodotto {
 
     private String imeiCode;
