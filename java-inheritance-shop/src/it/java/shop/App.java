@@ -1,24 +1,35 @@
 package it.java.shop;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         System.out.println("");
-        System.out.println(" - DATABASE PRODOTTI -");
-        System.out.println("-------------------------------------------------");
+        System.out.println("=================================================================================");
+        System.out.println("============================= DATABASE PRODOTTI =================================");
+        System.out.println("=================================================================================");
+        System.out.println("");
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Che prodotto vuoi inserire ? ");
-        System.out.println(" (S) Smartphone | (T) Tv | (C) Cuffie ");
-        System.out.println("");
-        System.out.println("");
-
-        String productChoice = scan.nextLine();
+        // Creating new null Prodotto istance
 
         Prodotto newProduct = null;
+
+        String productChoice;
+
+        do {
+            System.out.println("Che prodotto vuoi inserire ? ");
+            System.out.println(" (S) Smartphone | (T) Tv | (C) Cuffie ");
+            System.out.println("");
+
+            productChoice = scan.nextLine();
+
+        } while (!productChoice.equals("s") && !productChoice.equals("t") && !productChoice.equals("c"));
+
+        // Generic product info insert
 
         System.out.println(" Inserisci ka marca del prodotto");
         String productBrand = scan.nextLine();
@@ -28,72 +39,96 @@ public class App {
         String productName = scan.nextLine();
         System.out.println("");
 
-        System.out.println(" Inserisci il prezzo del prodotto (EUR)");
-        double productprice = scan.nextDouble();
-        String reset = scan.nextLine();
-        System.out.println("");
+        double productPrice;
+        boolean validImput = false;
 
-        switch (productChoice) {
-            case "s":
+        do {
+            System.out.println("Inserisci il prezzo del prodotto (EUR)");
+            try {
+                productPrice = scan.nextDouble();
+                validImput = true;
 
-                System.out.println(" Inserisci l'IMEI del prodotto");
-                String imei = scan.nextLine();
-                System.out.println("");
+                // choice switch (creating specific product istance by choice)
 
-                System.out.println(" Inserisci la quantità di memoria del prodotto");
-                long rom = scan.nextLong();
-                System.out.println("");
+                switch (productChoice) {
 
-                newProduct = new Smartphone(productName, productBrand, productprice, imei, rom);
+                    // SMARTPHONE
 
-                break;
+                    case "s":
 
-            case "t":
+                        System.out.println(" Inserisci l'IMEI del prodotto");
+                        String imei = scan.nextLine();
+                        System.out.println("");
 
-                System.out.println(" Inserisci la dimensione in pollici del prodotto");
-                int inch = scan.nextInt();
-                String vuoto = scan.nextLine();
-                System.out.println("");
+                        System.out.println(" Inserisci la quantità di memoria del prodotto");
+                        long rom = scan.nextLong();
+                        System.out.println("");
 
-                System.out.println(" Ha funzionalità smart ? ");
-                String smartTv = scan.nextLine();
+                        newProduct = new Smartphone(productName, productBrand, productPrice, imei, rom);
 
-                boolean smart = false;
+                        break;
 
-                if (smartTv.equals("si") || smartTv.equals("SI")) {
-                    smart = true;
+                    // TV
+
+                    case "t":
+
+                        System.out.println(" Inserisci la dimensione in pollici del prodotto");
+                        int inch = scan.nextInt();
+                        String vuoto = scan.nextLine();
+                        System.out.println("");
+
+                        System.out.println(" Ha funzionalità smart ? ");
+                        String smartTv = scan.nextLine();
+
+                        boolean smart = false;
+
+                        if (smartTv.equals("si") || smartTv.equals("SI")) {
+                            smart = true;
+                        }
+                        System.out.println("");
+
+                        System.out.println(" Inserisci il prezzo del prodotto (EUR)");
+                        System.out.println("");
+
+                        newProduct = new Televisori(productName, productBrand, productPrice, inch, smart);
+                        break;
+
+                    // HEDPHONE
+
+                    case "c":
+
+                        System.out.println(" Inserisci il colore del prodotto ");
+                        String color = scan.nextLine();
+                        System.out.println("");
+
+                        System.out.println(" La cuffia è cablata o buetooth ? ");
+                        String type = scan.nextLine();
+                        System.out.println("");
+
+                        newProduct = new Cuffie(productName, productBrand, productPrice, color, type);
+
+                        break;
+
+                    // DEFAULT
+
+                    default:
+                        System.out.println("Scelta non corretta !");
+
                 }
-                System.out.println("");
+            } catch (InputMismatchException e) {
+                System.out.println("Per favore, inserisci un numero valido ! ");
+                scan.nextLine(); // Pulisci il buffer dell'input
+            }
+        } while (!validImput);
 
-                System.out.println(" Inserisci il prezzo del prodotto (EUR)");
-                System.out.println("");
-
-                newProduct = new Televisori(productName, productBrand, productprice, inch, smart);
-                break;
-
-            case "c":
-
-                System.out.println(" Inserisci il colore del prodotto ");
-                String color = scan.nextLine();
-                System.out.println("");
-
-                System.out.println(" La cuffia è cablata o buetooth ? ");
-                String type = scan.nextLine();
-                System.out.println("");
-
-                newProduct = new Cuffie(productName, productBrand, productprice, color, type);
-
-                break;
-
-            default:
-                System.out.println("Scelta non corretta !");
-
-        }
+        System.out.println("");
 
         if (newProduct != null) {
 
             newProduct.print();
         }
+
+        scan.close();
 
         // if (choice.equals("s") || choice.equals("S")) {
 
@@ -184,8 +219,6 @@ public class App {
         // myHeadphone.print();
 
         // }
-
-        scan.close();
 
     }
 
