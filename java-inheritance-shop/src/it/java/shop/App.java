@@ -60,7 +60,7 @@ public class App {
 
                 // choice switch (creating specific product istance by choice)
 
-                switch (productChoice) {
+                switch (productChoice.toLowerCase()) {
 
                     // SMARTPHONE
 
@@ -88,11 +88,11 @@ public class App {
                         System.out.println("");
 
                         System.out.println(" Ha funzionalità smart ? ");
-                        String smartTv = scan.nextLine();
+                        String smartTv = scan.nextLine().toLowerCase();
 
                         boolean smart = false;
 
-                        if (smartTv.equals("si") || smartTv.equals("SI")) {
+                        if (smartTv.equals("si") /* || smartTv.equals("SI") */) {
                             smart = true;
                         }
                         System.out.println("");
